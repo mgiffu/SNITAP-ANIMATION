@@ -1,0 +1,115 @@
+section.gallery {
+  width: 100%;
+  max-width: 80em;
+  padding: 2.5rem 2rem;
+  margin-inline: auto;
+
+  & header {
+    text-align: center;
+  }
+
+  & header span {
+    font: 500 var(--text-sm)/1.5 var(--ff-base);
+  }
+
+  & img {
+    width: 100%;
+    height: auto;
+  }
+
+  & .content {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-areas: 
+    "A B B"
+    "C C D";
+
+    gap: 2.5rem;
+  }
+
+  & figcaption {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: .5rem;
+
+    font: 500 var(--text-sm)/1.5rem var(--ff-base);
+    color: white;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    padding: 1.5rem 2rem;
+
+    transform: translateY(100%); /* para tirar o figcaption da tela */
+    transition: transform 500ms; /* para fazer o figcaption aparecer suavemente na da tela */
+
+    background: linear-gradient(
+      to top,
+      rgb(0 0 0 / 0.64),
+      rgb(0 0 0 / 0)
+    );
+
+    & > img {
+      width: 2rem;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  & figure {
+    position: relative;
+    border-radius: 2.5rem;
+    overflow: hidden;
+    line-height: 0;
+
+    animation: image-appear linear backwards; /* colocando os efeitos da animação */
+    animation-timeline: view(); /* indicando que os efeitos irão ocorrer quando rolar a tela */
+    animation-range: 100px 300px; /* indicando o ponto de inicio e fim da animação */
+
+    &[data-delay]{ /* para ter um delay entre nas imagens da esquerda */
+      animation-range: 150px 350px;
+    }
+    
+    & > img {
+      height: 25rem;
+      object-fit: cover;
+      transition: scale 500ms; /* tem que estar aqui para que tenha a volta para o tamanho inicial, se colocar no hover não vai ter a volta */
+    }
+
+    &:hover {
+      & > img {
+        scale: 1.1;
+      }
+
+      figcaption {
+        transform: translateY(0); /* para que o figcaption aparece subindo quando houver o hover */
+      }
+    }
+
+    &:nth-child(1) {
+      grid-area: A;
+    }
+
+    &:nth-child(2) {
+      grid-area: B;
+    }
+
+    &:nth-child(3) {
+      grid-area: C;
+    }
+
+    &:nth-child(4) {
+      grid-area: D;
+    }
+  }
+}
+
+@keyframes image-appear {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}

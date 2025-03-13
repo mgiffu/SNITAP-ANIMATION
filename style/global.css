@@ -30,7 +30,7 @@ html, button {
 }
 
 html {
-  zoom: .5; /* para diminuir o zoom do show previw*/
+  zoom: .5; para diminuir o zoom do show previw
 }
 
 h1, h2 {
@@ -43,7 +43,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2.var(--text-lg);
+  font-size: var(--text-lg);
   line-height: 1.2;
 }
 
