@@ -138,6 +138,31 @@ section.hero {
 
 }
 
+@media (max-width: 22.5em) {
+  section.hero {
+    max-width: 22.5em;
+    width: 100%;
+    padding: 1rem 1.5rem;
+
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-items: none;
+
+    & h1 {
+      max-width: 19.5rem;
+    }
+
+    & .buttons {
+      max-width: 22.5rem;
+      padding: ;
+      display: flex;
+      flex-direction: column-reverse ;
+    }
+  }
+}
+
 @keyframes appear {
   to {
     opacity: 1;
