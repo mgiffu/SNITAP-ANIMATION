@@ -107,6 +107,26 @@ section.gallery {
   }
 }
 
+@media (max-width: 22.5em) {
+  section.gallery {
+    padding: 1.5rem;
+
+    & .content {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;      
+    }
+
+    & figure {
+      & > img {
+        max-width: 19.5rem;
+        height: 19.5rem;
+      }
+    }
+  }
+}
+
 @keyframes image-appear {
   from {
     opacity: 0;
