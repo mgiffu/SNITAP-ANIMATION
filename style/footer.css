@@ -1,0 +1,102 @@
+footer {
+  max-width: 80em;
+  width: 100%;
+  padding: 4rem 2rem 2rem;
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & .logo {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+
+    font: 700 1.25rem/1.3 'Syne', sans-serif;
+
+    & img {
+      width: 2rem;
+      transition: rotate 350ms;
+
+      &:hover {
+        rotate: 90deg;
+      }
+    }
+  }
+
+  & nav {
+    display: flex;
+    gap: 2rem;
+
+    & a {
+      width: fit-content; /* para ele ficar no conteudo */
+      position: relative;
+
+      &:hover::after {
+        opacity: 1;
+        transform: scaleX(1); /* para ficar visivel quando o mouse não esta encima */
+      }
+    }
+
+    & a::after { /* para criar a animação da barrinha aparencendo abaixo das palavras qnd passar o mouse em cima*/
+      content: "";
+      width: 100%;
+      height: 2px;
+      background-color: var(--snitap-sky-mid);
+
+      position: absolute;
+      bottom: 0; /* para a barrinha azul ir para baixo das palavras */
+      left: 0; /* para centralizar a barrinha azul abaixo das palavras */
+
+      transform: scaleX(0); /* para ficar invisivivel quando o mouse não esta encima */
+      transition: transform 200ms linear; /* para criar o efeito da barra aparecendo do meio para os lados */
+      opacity: 0;
+    }
+  }
+
+  & .social-links {
+    display: flex;
+    align-items: center;
+/*  */
+    & a { /* para criar a bolinha aparece que aparece atrás quando tem hover */
+      width: 2.5rem; 
+      height: 2.5rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 5rem;
+
+      position: relative;
+
+      &:hover::before {
+        scale: 1;
+      }
+
+      & img {
+        width: 1.5rem;
+        height: auto;
+      }
+      
+      &::before { /* será de fato a bolinha amarela, e herda várias caracteristicas do "a" */
+        content: "";
+
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+
+        background-color: var(--snitap-sun);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        scale: 0;
+        transition: scale 200ms;
+      }
+    }
+  }
+}
